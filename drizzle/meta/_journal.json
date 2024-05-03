@@ -1,0 +1,13 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1714714123833,
+      "tag": "0000_smart_kulan_gath",
+      "breakpoints": true
+    }
+  ]
+}
