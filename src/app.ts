@@ -2,6 +2,7 @@ import express, { Application } from "express";
 import { Controller } from "./express/controllers/Controller";
 import { ZodError } from "zod";
 import "express-async-errors";
+import cors from "cors";
 
 export class App {
   public app: Application;
@@ -12,6 +13,7 @@ export class App {
   }
 
   private initializeMiddlewares = () => {
+    this.app.use(cors());
     this.app.use(express.json());
   };
 

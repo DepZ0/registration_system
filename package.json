@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsx src/index.ts",
+    "start": "node --enable-source-maps dist/main.js",
     "build:prod": "esbuild src/index.ts --bundle --sourcemap=inline --platform=node --outfile=dist/main.js",
     "migrate": "drizzle-kit generate:pg"
   },
@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "drizzle-kit": "^0.20.14",
     "drizzle-orm": "^0.29.4",
