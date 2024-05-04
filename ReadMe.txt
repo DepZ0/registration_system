@@ -1,4 +1,4 @@
-We have a few routes [ /registration, /login, /logout, /details, /account-delete, /refresh-token ]
+We have a few routes [ /registration, /login, /logout, /details, /account-delete, /refresh-token, /profile ]
 
 1. /registration { POST
     For registration we need to make POST request and put in BODY 'email' and 'password'.
@@ -57,6 +57,13 @@ We have a few routes [ /registration, /login, /logout, /details, /account-delete
     For get refresh "accessToken" we may use this route.
     Like this {
         "refreshToken": ""
+    }
+}
+
+7. /profile { GET
+    For look on our profile we need to send GET request with "accessToken" in HEADERS.
+    Like this {
+        Authorization : "Bearer TOKEN"
     }
 }
 

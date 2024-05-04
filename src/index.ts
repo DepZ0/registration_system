@@ -21,6 +21,9 @@ import { RefreshTokenController } from "./express/controllers/refreshTokenContro
 import { DeleteAccountDb } from "./database/deleteAccountDb";
 import { DeleteAccountService } from "./express/services/deleteAccountService";
 import { DeleteAccountController } from "./express/controllers/deleteAccountController";
+import { ProfileDb } from "./database/profileDb";
+import { ProfileService } from "./express/services/profileService";
+import { ProfileController } from "./express/controllers/profileController";
 
 async function main() {
   const pool = new Pool({ connectionString: process.env.DATABASE_URL });
@@ -52,6 +55,10 @@ async function main() {
   const deleteAccountService = new DeleteAccountService(deleteAccountDb);
   const deleteAccountController = new DeleteAccountController(deleteAccountService);
 
+  const profileDb = new ProfileDb(db, pool);
+  const profileService = new ProfileService(profileDb);
+  const profileController = new ProfileController(profileService);
+
   const app = new App(3000, [
     registrationController,
     loginController,
@@ -59,6 +66,7 @@ async function main() {
     logoutController,
     refreshTokenController,
     deleteAccountController,
+    profileController,
   ]);
   app.start();
 }
